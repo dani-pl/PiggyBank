@@ -35,7 +35,7 @@ kotlin {
 
 android {
     namespace = "com.danipl.piggybank"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 24
     }

@@ -1,7 +1,8 @@
 [versions]
-agp = "8.5.0"
-kotlin = "2.0.0"
+agp = "8.5.2"
+kotlin = "2.0.20-RC2"
 androidxComposeBom = "2024.06.00"
+androidxNavigation = "2.8.0-beta07"
 androidxActivity = "1.9.1"
 kotlinSerialization = "1.7.1"
 
@@ -13,6 +14,9 @@ compose-ui = { module = "androidx.compose.ui:ui" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 compose-material3 = { module = "androidx.compose.material3:material3" }
+
+# Compose Navigation
+androidx-navigation-compose =  { module = "androidx.navigation:navigation-compose", version.ref = "androidxNavigation" }
 
 # Other Compose libraries
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
