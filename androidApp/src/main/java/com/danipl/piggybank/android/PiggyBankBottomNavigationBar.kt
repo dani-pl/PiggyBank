@@ -13,18 +13,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 
 @Composable
-fun PiggyBankBottomNavigationBar(){
+fun PiggyBankBottomNavigationBar() {
     var selectedItem by remember { mutableIntStateOf(0) }
 
     NavigationBar(
-        containerColor = Color.Transparent
+        containerColor = Color.Transparent,
     ) {
         navigationItems.forEachIndexed { index, item ->
             NavigationBarItem(
                 icon = { Icon(painter = painterResource(item.icon), contentDescription = item.tabName) },
                 label = { Text(item.tabName) },
                 selected = selectedItem == index,
-                onClick = { selectedItem = index }
+                onClick = { selectedItem = index },
             )
         }
     }
@@ -32,5 +32,5 @@ fun PiggyBankBottomNavigationBar(){
 
 private val navigationItems = listOf(
     PiggyBankDestination.Overview,
-    PiggyBankDestination.Profile
+    PiggyBankDestination.Profile,
 )

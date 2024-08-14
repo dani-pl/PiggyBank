@@ -28,18 +28,17 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Bottom,
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.background)
+                        .background(MaterialTheme.colorScheme.background),
                 ) {
                     NavHost(
                         navController = navController,
                         startDestination = PiggyBankDestination.Overview,
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
                     ) {
                         composable<PiggyBankDestination.Overview> {
                             OverviewRoute()
                         }
                         composable<PiggyBankDestination.Profile> {
-
                         }
                     }
                     PiggyBankBottomNavigationBar()
@@ -52,16 +51,17 @@ class MainActivity : ComponentActivity() {
 @Serializable
 internal sealed class PiggyBankDestination(
     open val icon: Int,
-    open val tabName: String
-){
+    open val tabName: String,
+) {
     @Serializable
-    data object Overview: PiggyBankDestination(
+    data object Overview : PiggyBankDestination(
         icon = com.danipl.piggybank.R.drawable.ic_overview,
-        tabName = "Overview"
+        tabName = "Overview",
     )
+
     @Serializable
-    data object Profile: PiggyBankDestination(
+    data object Profile : PiggyBankDestination(
         icon = com.danipl.piggybank.R.drawable.ic_profile,
-        tabName = "Profile"
+        tabName = "Profile",
     )
 }

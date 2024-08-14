@@ -13,21 +13,21 @@ import com.danipl.piggybank.R
 fun PiggyBankListItem(
     drawableRes: Int = R.drawable.nordea,
     title: String,
-    amount: Double
+    amount: Double,
 ) {
     ListItem(
         headlineContent = { Text(title) },
         leadingContent = {
             Image(
                 painter = painterResource(drawableRes),
-                contentDescription = ""
+                contentDescription = "",
             )
         },
         trailingContent = {
             Text(
                 text = stringResource(id = R.string.overview_screen_list_item_amount_kr, amount),
-                style = MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.bodyMedium,
             )
-        }
+        },
     )
 }
