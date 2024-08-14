@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Piggy Bank</string>
+    <string name="overview_screen_list_item_amount_kr">%.2f kr</string>
 </resources>
