@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.danipl.piggybank.Greeting
+import com.danipl.piggybank.android.overview.OverviewRoute
 import com.danipl.piggybank.android.theme.PiggyBankTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PiggyBankTheme {
-                Greeting()
+                OverviewRoute()
             }
         }
     }
