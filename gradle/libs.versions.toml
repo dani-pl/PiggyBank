@@ -5,6 +5,7 @@ androidxComposeBom = "2024.06.00"
 androidxNavigation = "2.8.0-beta07"
 androidxActivity = "1.9.1"
 kotlinSerialization = "1.7.1"
+spotless = "6.19.0"
 
 [libraries]
 
@@ -33,3 +34,5 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless"}
+

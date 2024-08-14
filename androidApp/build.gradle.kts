@@ -37,6 +37,24 @@ android {
     }
 }
 
+apply(plugin = "com.diffplug.spotless")
+configure<com.diffplug.gradle.spotless.SpotlessExtension> {
+    kotlin {
+        target("**/*.kt")
+        targetExclude("**/build/**/*.kt")
+        ktlint().apply {
+            userData(mapOf("android" to "true"))
+        }
+        indentWithSpaces()
+        trimTrailingWhitespace()
+    }
+    kotlinGradle {
+        ktlint()
+        indentWithSpaces()
+        trimTrailingWhitespace()
+    }
+}
+
 dependencies {
     implementation(projects.shared)
     implementation(platform(libs.androidx.compose.bom))
