@@ -4,4 +4,8 @@
     <string name="total_worth_title">Total Worth</string>
     <string name="total_worth_amount">%d kr</string>
     <string name="overview_screen_list_item_amount_kr">%.2f kr</string>
+    <string name="add_asset">Add asset</string>
+    <string name="asset_name">Asset name</string>
+    <string name="amount">Amount</string>
+    <string name="registered_on">Registered on</string>
 </resources>
