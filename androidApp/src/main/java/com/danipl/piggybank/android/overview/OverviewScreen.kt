@@ -25,7 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.danipl.piggybank.R
-import com.danipl.piggybank.android.overview.components.PiggyBankListItem
+import com.danipl.piggybank.android.components.PiggyBankAssetAmountListItem
 import com.danipl.piggybank.android.theme.PiggyBankTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -85,7 +85,7 @@ private fun OverviewScreen(
         }
 
         assets.forEach { asset ->
-            PiggyBankListItem(
+            PiggyBankAssetAmountListItem(
                 drawableRes = asset.imgDrawableRes,
                 amount = asset.amount,
                 title = asset.title,

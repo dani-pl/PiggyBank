@@ -1,4 +1,4 @@
-package com.danipl.piggybank.android.overview.components
+package com.danipl.piggybank.android.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.material3.ListItem
@@ -10,7 +10,7 @@ import androidx.compose.ui.res.stringResource
 import com.danipl.piggybank.R
 
 @Composable
-fun PiggyBankListItem(
+fun PiggyBankAssetAmountListItem(
     drawableRes: Int = R.drawable.nordea,
     title: String,
     amount: Double,
