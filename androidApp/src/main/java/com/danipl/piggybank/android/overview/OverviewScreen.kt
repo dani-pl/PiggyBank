@@ -13,6 +13,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.Scaffold
@@ -22,6 +24,7 @@ import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.danipl.piggybank.R
@@ -30,7 +33,9 @@ import com.danipl.piggybank.android.theme.PiggyBankTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun OverviewRoute() {
+internal fun OverviewRoute(
+    onFabClicked: () -> Unit,
+) {
     Scaffold(
         contentWindowInsets = ScaffoldDefaults.contentWindowInsets.exclude(NavigationBarDefaults.windowInsets),
         topBar = {
@@ -40,6 +45,13 @@ internal fun OverviewRoute() {
                 colors = topAppBarColors(
                     containerColor = PiggyBankTheme.colors.primaryContainer,
                 ),
+            )
+        },
+        floatingActionButton = {
+            ExtendedFloatingActionButton(
+                onClick = onFabClicked,
+                text = { Text(text = stringResource(id = R.string.add_asset)) },
+                icon = { Icon(painter = painterResource(R.drawable.ic_add), contentDescription = "") },
             )
         },
         modifier = Modifier.fillMaxSize(),

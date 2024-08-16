@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import kotlinx.serialization.Serializable
 
 @Composable
 fun PiggyBankBottomNavigationBar() {
@@ -30,7 +31,25 @@ fun PiggyBankBottomNavigationBar() {
     }
 }
 
+@Serializable
+internal sealed class PiggyBankNavigationItem(
+    open val icon: Int = com.danipl.piggybank.R.drawable.ic_overview,
+    open val tabName: String,
+) {
+    @Serializable
+    data object Overview : PiggyBankNavigationItem(
+        icon = com.danipl.piggybank.R.drawable.ic_overview,
+        tabName = "Overview",
+    )
+
+    @Serializable
+    data object Profile : PiggyBankNavigationItem(
+        icon = com.danipl.piggybank.R.drawable.ic_profile,
+        tabName = "Profile",
+    )
+}
+
 private val navigationItems = listOf(
-    PiggyBankDestination.Overview,
-    PiggyBankDestination.Profile,
+    PiggyBankNavigationItem.Overview,
+    PiggyBankNavigationItem.Profile,
 )
