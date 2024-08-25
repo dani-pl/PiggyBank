@@ -20,8 +20,10 @@ import androidx.navigation.compose.rememberNavController
 import com.danipl.piggybank.android.editAsset.EditAssetRoute
 import com.danipl.piggybank.android.overview.OverviewRoute
 import com.danipl.piggybank.android.theme.PiggyBankTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.serialization.Serializable
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
