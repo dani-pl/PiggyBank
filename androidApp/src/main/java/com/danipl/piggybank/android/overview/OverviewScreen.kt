@@ -22,11 +22,17 @@ import androidx.compose.material3.ScaffoldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.danipl.piggybank.R
 import com.danipl.piggybank.android.components.PiggyBankAssetAmountListItem
 import com.danipl.piggybank.android.theme.PiggyBankTheme
@@ -35,7 +41,17 @@ import com.danipl.piggybank.android.theme.PiggyBankTheme
 @Composable
 internal fun OverviewRoute(
     onFabClicked: () -> Unit,
+    overviewViewModel: OverviewViewModel = hiltViewModel(),
 ) {
+    val coroutineScope = rememberCoroutineScope()
+    val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
+
+    LaunchedEffect(Unit) {
+        overviewViewModel.refreshAssets()
+    }
+
+    val state: OverviewState by overviewViewModel.state.collectAsState()
+
     Scaffold(
         contentWindowInsets = ScaffoldDefaults.contentWindowInsets.exclude(NavigationBarDefaults.windowInsets),
         topBar = {
@@ -58,6 +74,7 @@ internal fun OverviewRoute(
     ) { innerPadding ->
         OverviewScreen(
             modifier = Modifier.padding(innerPadding),
+            state = state,
         )
     }
 }
@@ -65,6 +82,8 @@ internal fun OverviewRoute(
 @Composable
 private fun OverviewScreen(
     modifier: Modifier = Modifier,
+    state: OverviewState,
+
 ) {
     Column(
         modifier = modifier
@@ -83,7 +102,7 @@ private fun OverviewScreen(
                 ),
         ) {
             Text(
-                text = stringResource(R.string.total_worth_amount, 25000),
+                text = stringResource(R.string.total_worth_amount, state.totalWorthAmount),
                 style = MaterialTheme.typography.titleLarge,
             )
 
@@ -96,11 +115,11 @@ private fun OverviewScreen(
             Spacer(Modifier.height(50.dp))
         }
 
-        assets.forEach { asset ->
+        state.assets.forEach { asset ->
             PiggyBankAssetAmountListItem(
                 drawableRes = asset.imgDrawableRes,
-                amount = asset.amount,
-                title = asset.title,
+                amount = asset.amount.toDouble(),
+                title = asset.name,
             )
         }
     }

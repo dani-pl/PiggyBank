@@ -8,6 +8,7 @@ kotlinSerialization = "1.7.1"
 spotless = "6.19.0"
 hilt = "2.51.1"
 androidxHiltNavigationCompose = "1.2.0"
+roomVersion = "2.6.1"
 
 [libraries]
 
@@ -32,6 +33,11 @@ kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-j
 #Dagger
 hilt = { module = "com.google.dagger:hilt-android", version.ref ="hilt"}
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt"}
+
+#Room
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion"}
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion"}
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
@@ -42,3 +48,4 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless"}
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+room = { id = "androidx.room", version.ref = "roomVersion"}
